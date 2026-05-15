@@ -1,0 +1,25 @@
+# Julia
+Manifest.toml
+*.jl.cov
+*.jl.mem
+*.jl.*.cov
+/coverage/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# Data — benchmark files are large, download separately
+data/benchmark/
+
+# Report PDF (add manually or via Git LFS)
+docs/*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
