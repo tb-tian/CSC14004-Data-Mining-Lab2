@@ -92,22 +92,31 @@ function recursive_fpclose!(
             continue
         end
 
-        insert_cfi!(
-            cfi_tree,
-            candidate,
-            support
-        )
-
-        push!(
-            results,
-            (candidate, support)
-        )
-
         conditional_tree = build_conditional_tree(
             tree,
             item,
             minsup
         )
+
+        # candidate is closed only if no proper superset has the same support.
+        # Any item j in the conditional tree has support = count(candidate ∪ {j}),
+        # so if any such count equals `support`, candidate is not closed.
+        y_is_closed = !any(
+            v[1] == support
+            for v in values(conditional_tree.header_table)
+        )
+
+        if y_is_closed
+            insert_cfi!(
+                cfi_tree,
+                candidate,
+                support
+            )
+            push!(
+                results,
+                (candidate, support)
+            )
+        end
 
         recursive_fpclose!(
             conditional_tree,
