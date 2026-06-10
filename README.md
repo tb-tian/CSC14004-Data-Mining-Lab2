@@ -49,7 +49,7 @@ Yêu cầu: **Julia >= 1.9**
 julia --project -e 'using Pkg; Pkg.instantiate()'
 ```
 
-<!-- ## Chạy thuật toán
+## Chạy thuật toán
 
 ```bash
 # julia --project src/algorithm/fpclose.jl <minsup> <filepath>
@@ -64,31 +64,38 @@ julia --project src/algorithm/fpclose.jl 2 data/toy/example1.txt
 2 3   #SUP: 6
 ```
 
-## Chạy kiểm thử
+<!-- ## Chạy kiểm thử
 
 ```bash
 julia --project tests/runtests.jl
-```
+``` -->
 
 ## Tải dữ liệu benchmark
 
-Tải các tập dữ liệu từ [SPMF Datasets](https://www.philippe-fournier-viger.com/spmf/index.php?link=datasets.php) hoặc [FIMI Repository](http://fimi.uantwerpen.be/data/) và đặt vào thư mục `data/benchmark/`:
+Tải các tập dữ liệu từ [SPMF Datasets](https://www.philippe-fournier-viger.com/spmf/index.php?link=datasets.php) và đặt vào thư mục `data/benchmark/`:
 
-| Tập dữ liệu | File | #Trans | #Items | Đặc điểm |
-|---|---|---|---|---|
-| Chess | chess.dat | 3.196 | 75 | Dày đặc |
-| Mushroom | mushroom.dat | 8.124 | 119 | Dày đặc |
-| Retail | retail.dat | 88.162 | 16.47 | Thưa |
-| Accidents | accidents.dat | 340.183 | 468 | Rất lớn |
-| T10I4D100K | T10I4D100K.dat | 100.000 | 870 | Tổng hợp |
+| File | Nguồn |
+|------|-------|
+| `chess.txt` | [SPMF](https://www.philippe-fournier-viger.com/spmf/publicdatasets/chess.txt) |
+| `mushrooms.txt` | [SPMF](https://www.philippe-fournier-viger.com/spmf/publicdatasets/mushrooms.txt) |
+| `retail.txt` | [SPMF](https://www.philippe-fournier-viger.com/spmf/publicdatasets/retail.txt) |
+| `accidents.txt` | [SPMF](https://www.philippe-fournier-viger.com/spmf/publicdatasets/accidents.txt) |
+| `T10I4D100K.txt` | [SPMF](https://www.philippe-fournier-viger.com/spmf/publicdatasets/T10I4D100K.txt) |
 
-> Nếu file benchmark > 25MB, tải từ Google Drive: *(link sẽ được thêm sau)*
-
-## Kết quả kiểm thử
+```
+└── data/
+    └── benchmark/ 
+        ├── chess.txt 
+        ├── mushrooms.txt 
+        ├── retail.txt
+        ├── accidents.txt
+        └── T10I4D100K.txt
+```
+<!-- ## Kết quả kiểm thử
 
 *(Điền output của `julia --project tests/runtests.jl` sau lần chạy cuối trước khi nộp)*
 
 ```
 Test Summary: | Pass  Fail  Error  Total
-FPClose Correctness | ...
-``` -->
+FPClose Correctness | ... -->
+
