@@ -55,3 +55,30 @@ function all_combinations(items)
 
     result
 end
+
+function count_items(transactions)
+    return sum(
+        length(transaction)
+        for transaction in transactions
+)
+end
+
+function measure_time_ms(f::Function)
+    start_time = time_ns()
+    f()
+    return (time_ns() - start_time) / 1_000_000
+end
+
+function measure_memory_mb(f::Function)
+    GC.gc()
+
+    memory_before = Base.gc_live_bytes()
+    f()
+    memory_after = Base.gc_live_bytes()
+
+    return (memory_after - memory_before) / 1024 / 1024
+end
+
+function minsup_to_absolute(transactions,minsup_pct)
+    return ceil(Int,minsup_pct * length(transactions))
+end
