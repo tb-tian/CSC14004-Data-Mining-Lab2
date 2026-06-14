@@ -64,6 +64,16 @@ julia --project src/algorithm/fpclose.jl 2 data/toy/example1.txt
 2 3   #SUP: 6
 ```
 
+## Chạy notebook thực nghiệm
+
+Notebook [`notebooks/experiment.ipynb`](notebooks/experiment.ipynb) là Julia notebook (kernel IJulia) dùng để thực hiện toàn bộ Chương 4 — Thực nghiệm và Đánh giá, bao gồm:
+
+- **Kiểm tra tính đúng đắn:** So sánh kết quả FPClose của nhóm với output chuẩn của SPMF trên 5 tập dữ liệu benchmark (Chess, Mushrooms, Retail, Accidents, T10I4D100K), tính Precision/Recall/Match Rate.
+- **Đo thời gian chạy và bộ nhớ:** Vẽ biểu đồ so sánh runtime và peak memory giữa cài đặt nhóm và SPMF ở nhiều ngưỡng `minsup` khác nhau.
+- **Phân tích số lượng itemset:** Biểu đồ số lượng closed frequent itemset sinh ra theo `minsup` trên từng dataset.
+- **Khả năng mở rộng (Scalability):** Đo thời gian chạy khi tăng dần kích thước tập dữ liệu Retail từ 10% đến 100%.
+- **Ảnh hưởng của độ dài giao dịch:** Thực nghiệm trên dữ liệu sinh ngẫu nhiên với độ dài giao dịch từ 5 đến 60 item để đánh giá tác động lên runtime.
+
 <!-- ## Chạy kiểm thử
 
 ```bash
